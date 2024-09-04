@@ -1,0 +1,22 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: gcs-sync-job
+spec:
+  template:
+    spec:
+      containers:
+        - name: gcs-sync-container
+          image: google/cloud-sdk
+          command: ["sh", "-c", "gsutil -m rsync -r gs://your-gcp-bucket /data/input"]
+          volumeMounts:
+            - mountPath: /data/input
+              name: gce-pd
+      volumes:
+        - name: gce-pd
+          gcePersistentDisk:
+            pdName: your-pd-name
+            pdNamespace: your-pd-namespace
+            fsType: ext4
+      restartPolicy: Never
+  backoffLimit: 4
