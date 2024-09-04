@@ -9,4 +9,4 @@
 | app-cronjob.yaml | create cronjob to print Hello World | manifest for a simple cron job | [app-cronjob.yaml](yaml/app-cronjob.yaml) |
 | app-job.yaml | create Job to use google/cloud-sdk container to sync data from a GCP bucket to a GCE persistent disk mounted at /data/input | manifest to sync data | [app-job.yaml](yaml/app-job.yaml) |
 | app-multicontainer.yaml | create Pod with nginx and debian containers, shared volume, debian has index.html with date record every 1 sec | manifest for pod with two containers | [app-multicontainer.yaml](yaml/app-multicontainer.yaml) |
-|  |  |  |  |
+| app-secret-env.yaml | redis container, env vars SECRET_USERNAME and SECRET_PASSWORD sourced from secret | manifest defines env vars sourced from secret | [app-secret-env.yaml](yaml/app-secret-env.yaml) |
